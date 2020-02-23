@@ -125,6 +125,7 @@ public class BeanCompiler {
     }
 
     public void generateCreateMethod(Constructor<?> constructor) {
+        int stackSize = 2;
         Label start = new Label();
         Label end = new Label();
         MethodVisitor mv = cw.visitMethod(ACC_PUBLIC, "create", Type.getMethodDescriptor(objectType), null, null);
@@ -150,6 +151,7 @@ public class BeanCompiler {
                 } else {
                     mv.visitInsn(ACONST_NULL);
                 }
+                stackSize++;
             }
 
             mv.visitMethodInsn(INVOKESPECIAL, objectType.getInternalName(), "<init>", Type.getConstructorDescriptor(constructor), false);
@@ -162,7 +164,7 @@ public class BeanCompiler {
         mv.visitLabel(end);
 
         mv.visitLocalVariable("this", type.getDescriptor(), null, start, end, 0);
-        mv.visitMaxs(2, 1);
+        mv.visitMaxs(stackSize, 1);
         mv.visitEnd();
     }
 

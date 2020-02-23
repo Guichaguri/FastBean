@@ -1,7 +1,7 @@
 # FastBean
 A fast, bytecode powered bean mapping library.
 
-FastBean allows you to create instances and fill and extract POJO properties. It's blazing fast by generating bytecode on the fly.
+FastBean allows you to create instances, fill and extract POJO properties. It's blazing fast by generating bytecode on the fly.
 
 ## Usage
 You may have a POJO class similar to the one below:
@@ -27,7 +27,7 @@ Bean<User> bean = FastBean.compile(User.class);
 
 The generated `Bean` instance allows you to create a new instance and fill and extract the properties without using reflection or method handles.
 
-Here's an example showing how you can create a new instance and fill with data from a map:
+Here's an example showing how you can create a new instance, fill with data from a map:
 ```java
 HashMap<String, Object> data = new HashMap<>();
 data.put("name", "John");
@@ -77,6 +77,6 @@ class UserBean implements Bean<User> {
 
 }
 ```
-The class is actually generated directly into Java bytecode, not Java code. This is only a equivalent Java code of what it actually does.
+The class is actually generated directly into Java bytecode, not Java code. This is only a representation of what it actually does.
 
-FastBean is fast just because of that: it doesn't rely on reflection to manipulate the POJO class, it generates a class with compiled code that handles those operations directly.
+FastBean is fast just because of that: it doesn't rely on reflection to manipulate the POJO class, it generates a class that handles those operations directly.
