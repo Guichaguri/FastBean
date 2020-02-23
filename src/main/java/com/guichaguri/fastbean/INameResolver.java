@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
  */
 public interface INameResolver {
 
-    String getName(Method method);
+    String getName(Method method, boolean setter);
 
     String getName(Field field);
 

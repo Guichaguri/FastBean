@@ -8,7 +8,7 @@ package com.guichaguri.fastbean;
  * @author Guichaguri
  */
 @FunctionalInterface
-public interface IPropertyMapper {
+public interface IPropertyGetter {
 
     Object getObject(String property);
 
